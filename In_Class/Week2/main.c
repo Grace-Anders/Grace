@@ -6,6 +6,14 @@
 //Proper Compile Statment:
 //gcc -o app -std=c99 -Wall -Wextra -Werror -pedantic -O2 main.c
 
+/* Difference between * and &
+
+    *: To get a value from a pointer
+
+    &: To get a pointer from a value
+
+*/
+
 /* main_ : in main module 
 void main_foo(void);
 void main_bar(int);
@@ -32,6 +40,13 @@ void by_refrence(int *n)
     (*n)++;
 }
 
+/* XXX Returing memeory outside of a function (undefined behavior can crash app)
+
+int *bad(void){
+    int n = 10;
+    return &n;
+}
+*/
 int main(void)
 {
     //print Hello World
@@ -68,16 +83,26 @@ int main(void)
     }while (1==2);
     */
 
+/* By Value vs. By Reffrence
    int n = 100;
 
    by_value(n);
-
-   printf("%d", n);
+   printf("%d\n", n);
+   // = 100
 
    by_refrence(&n);
+   printf("%d\n", n);
+   // = 101
+*/
 
-   printf("%d", n);
+/* XXX This writes to memory we don't have access to
 
+    int *n = bad();
 
+    (*n) = 100;
+
+    printf("%d", *n);
+    // = resuls in error: terninated by signal SIGSEGV
+*/
 }
 
