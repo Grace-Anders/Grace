@@ -1,4 +1,5 @@
 #include <stdio.h>
+//works on vdi
 
 //Compile: (no output is good!)
 //gcc main.c -o app 
